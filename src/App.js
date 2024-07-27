@@ -1,7 +1,6 @@
 import './App.css';
 import { RouterProvider } from 'react-router-dom';
-import Routes, { routes } from './router';
-import HeroesProvider from './components/context/heroesContext';
+import { routes } from './router';
 
 function App() {
   return (

@@ -21,7 +21,7 @@ export default function HeroesProvider({ children }) {
   const baseUrl = "https://gateway.marvel.com:443/v1/public/";
   const privateKey = "7a6334685a561d4aa8b51503059fa5b464dfe62d";
   const publicKey = "d74ae6bf126c577376e1780c2ce9c79c";
-  const ts = new Date().getTime();
+  const ts = new Date().getTime() % 10000;
   const hash = md5(ts + privateKey + publicKey);
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState([]);
@@ -44,8 +44,7 @@ export default function HeroesProvider({ children }) {
     fetchData();
   }, [baseUrl, ts, hash]);
 
-  if (isLoading) return <p>Loading .. .</p>;
-  return (
+  return data.length > 0 && !isLoading ? (
     <heroesContext.Provider
       value={{
         data,
@@ -54,5 +53,7 @@ export default function HeroesProvider({ children }) {
     >
       {children}
     </heroesContext.Provider>
+  ) : (
+    <p>Loading ...</p>
   );
 }

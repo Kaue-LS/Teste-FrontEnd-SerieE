@@ -6,12 +6,17 @@ import {
     createRoutesFromElements,
     Route
 } from "react-router-dom";
+import HeroePage from "./pages/heroPage";
 
-export const routes = createBrowserRouter(
-    createRoutesFromElements(
-        <Route path="/" element={<Home />}>
-        </Route>
-    )
-)
+export const routes = createBrowserRouter([
+    {
+        path: "/",
+        element: <Home />,
+    },
+    {
+        path: "/:id",
+        element: <HeroePage />,
+    }
+]);
 
-export default routes
+export default routes;
