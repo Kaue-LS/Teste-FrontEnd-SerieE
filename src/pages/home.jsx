@@ -1,9 +1,9 @@
 import React from "react";
 import Header from "../components/header";
 import SearchSection from "../components/searchSection";
-import FavoriteIcon from "../assets/icons/favoriteIcon";
 import Switch from "../components/switch";
-import starLord from "../assets/starLord.png";
+import GetHeroesList from "../components/getHeroes";
+import HeroesProvider from "../components/context/heroesContext";
 export default function Home() {
   return (
     <main>
@@ -20,44 +20,9 @@ export default function Home() {
           </div>
 
           {/* Heroes List */}
-          <section>
-            <div>
-              <div>
-                <img src={starLord} alt="Star-Lord" />
-              </div>
-              <div>
-                <p>Star-Lord</p>
-                <FavoriteIcon />
-              </div>
-            </div>
-            <div>
-              <div>
-                <img src={starLord} alt="Star-Lord" />
-              </div>
-              <div>
-                <p>Star-Lord</p>
-                <FavoriteIcon />
-              </div>
-            </div>
-            <div>
-              <div>
-                <img src={starLord} alt="Star-Lord" />
-              </div>
-              <div>
-                <p>Star-Lord</p>
-                <FavoriteIcon />
-              </div>
-            </div>
-            <div>
-              <div>
-                <img src={starLord} alt="Star-Lord" />
-              </div>
-              <div>
-                <p>Star-Lord</p>
-                <FavoriteIcon />
-              </div>
-            </div>
-          </section>
+          <HeroesProvider>
+            <GetHeroesList />
+          </HeroesProvider>
         </section>
       </div>
     </main>
