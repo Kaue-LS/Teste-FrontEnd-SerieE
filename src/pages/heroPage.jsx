@@ -1,3 +1,10 @@
-export default function HeroePage() {
-  return <h2>Hero Page!!!!</h2>;
+import GetHeroData from "../components/API/getHero";
+
+export default function HeroPage() {
+  return (
+    <section>
+      teste
+      <GetHeroData />
+    </section>
+  );
 }

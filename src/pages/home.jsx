@@ -2,7 +2,7 @@ import React from "react";
 import Header from "../components/header";
 import SearchSection from "../components/searchSection";
 import Switch from "../components/switch";
-import GetHeroesList from "../components/getHeroes";
+import GetHeroesList from "../components/API/getHeroes";
 export default function Home() {
   return (
     <main className="home">

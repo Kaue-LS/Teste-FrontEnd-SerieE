@@ -14,7 +14,7 @@ export const routes = createBrowserRouter([
         element: <Home />,
     },
     {
-        path: "/:id",
+        path: "/:heroId",
         element: <HeroePage />,
     }
 ]);

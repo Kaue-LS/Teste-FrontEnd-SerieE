@@ -1,8 +1,8 @@
-import md5 from "md5";
-import axios from "axios";
+// import md5 from "md5";
+// import axios from "axios";
 import { useEffect, useState } from "react";
-import HeroesList from "./heroesList";
-import dataJson from "..//components/API/application.json";
+import HeroesList from "../heroesList";
+import dataJson from "./application.json";
 export default function GetHeroesList() {
   // const baseUrl = "https://gateway.marvel.com:443/v1/public/characters?";
   // const privateKey = "7a6334685a561d4aa8b51503059fa5b464dfe62d";
