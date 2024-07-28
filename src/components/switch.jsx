@@ -9,7 +9,7 @@ export default function Switch() {
         <div className="totalHeroes">
           <p>Encontrados {data.data.count} heróis</p>
         </div>
-        <div className="switchOptions">
+        <div className="switchOptions desktop">
           <div className="nameOption">
             <div className="heroIcon">
               <span>
@@ -29,6 +29,14 @@ export default function Switch() {
               <p>Somente favoritos</p>
             </div>
           </div>
+        </div>
+        <div className="switchOptions mobile">
+          <select>
+            <option defaultChecked value="name">
+              Ordenar por nome - A/Z
+            </option>
+            <option value="favorite">Somente favoritos</option>
+          </select>
         </div>
       </div>
     </div>

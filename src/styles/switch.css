@@ -14,7 +14,7 @@
 .switch .content .totalHeroes p {
   color: var(--color-lightGray);
   font-weight: 500;
-  font-size: 18px;
+  font-size: 14px;
 }
 .switch .content .switchOptions {
   display: inline-flex;
@@ -41,7 +41,8 @@
   max-width: max-content;
 }
 .switch .content .switchOptions .nameOption p,
-.switch .content .switchOptions .favoriteOption .favoriteIcon p {
+.switch .content .switchOptions .favoriteOption .favoriteIcon p,
+.switch .content .switchOptions.mobile p {
   color: var(--background-red);
   font-size: 15px;
   font-weight: 500;
@@ -122,4 +123,46 @@
   height: 100%;
   min-width: 25px;
   min-height: 25px;
+}
+
+.switch .content .switchOptions.desktop {
+  display: none;
+}
+.switch .content .switchOptions.mobile {
+  display: inline-flex;
+  gap: 10px;
+}
+
+.switch .content .switchOptions.mobile select {
+  background-color: var(--background-lightRed);
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--background-red);
+  border-radius: 5px;
+  font-size: 12px;
+  color: var(--background-red);
+  appearance: none;
+  opacity: 60%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+.switch .content .switchOptions.mobile select:focus {
+  outline: none;
+  border: 1px solid var(--background-red);
+}
+.switch .content .switchOptions.mobile select option {
+  font-size: 12px;
+  color: var(--background-red);
+}
+
+@media only screen and (min-width: 768px) {
+  .switch .content .switchOptions.desktop {
+    display: flex;
+  }
+  .switch .content .switchOptions.mobile {
+    display: none;
+  }
+  .switch .content .totalHeroes p {
+    font-size: 18px;
+  }
 }
