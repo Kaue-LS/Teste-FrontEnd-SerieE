@@ -3,14 +3,12 @@ import Header from "../components/header";
 import SearchSection from "../components/searchSection";
 import Switch from "../components/switch";
 import GetHeroesList from "../components/getHeroes";
-import HeroesProvider from "../components/context/heroesContext";
 export default function Home() {
   return (
-    <main>
-      <div>
+    <main className="home">
+      <div className="home-content">
         <Header />
         <SearchSection />
-
         <section>
           <div>
             <div>
@@ -20,9 +18,7 @@ export default function Home() {
           </div>
 
           {/* Heroes List */}
-          <HeroesProvider>
-            <GetHeroesList />
-          </HeroesProvider>
+          <GetHeroesList />
         </section>
       </div>
     </main>
