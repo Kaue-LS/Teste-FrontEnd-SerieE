@@ -129,7 +129,11 @@ table {
 }
 
 /* ----------------------------------------------- */
-
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Work Sans", sans-serif,
@@ -158,6 +162,9 @@ input {
   background: none;
   border: none;
   outline: none;
+}
+.content {
+  padding: 0;
 }
 @media only screen and (min-width: 768px) {
   h1 {

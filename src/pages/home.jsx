@@ -10,13 +10,7 @@ export default function Home() {
         <Header />
         <SearchSection />
         <section>
-          <div>
-            <div>
-              <p>Encontrados {20} heróis</p>
-            </div>
-            <Switch />
-          </div>
-
+          <Switch />
           {/* Heroes List */}
           <GetHeroesList />
         </section>

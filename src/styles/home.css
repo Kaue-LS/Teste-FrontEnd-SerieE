@@ -6,6 +6,11 @@
 }
 @media only screen and (min-width: 768px) {
   .home .content {
+    padding: 40px 60px 0 60px;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .home .content {
     padding: 40px 120px 0 120px;
   }
 }
