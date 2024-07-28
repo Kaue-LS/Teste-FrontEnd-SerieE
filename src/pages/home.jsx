@@ -6,7 +6,7 @@ import GetHeroesList from "../components/API/getHeroes";
 export default function Home() {
   return (
     <main className="home">
-      <div className="home-content">
+      <div className="content">
         <Header />
         <SearchSection />
         <section>

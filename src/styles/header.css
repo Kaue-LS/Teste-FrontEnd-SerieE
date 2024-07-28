@@ -7,7 +7,10 @@
 .header .header-image {
   width: 100%;
   max-width: 100%;
-  padding: 0 0 30px;
+  padding: 0 0 10px;
+}
+.header .header-image .desktop {
+  display: none;
 }
 .header .header-image img {
   margin: 0 auto;
@@ -21,5 +24,20 @@
   text-align: center;
 }
 .header .header-title h1 {
-  padding: 0 0px 6px 0;
+  padding: 0 0px 10px 0;
+}
+
+@media only screen and (min-width: 768px) {
+  .header .header-image .desktop {
+    display: block;
+  }
+  .header .header-image .mobile {
+    display: none;
+  }
+  .header .header-title h1 {
+    padding: 0 0px 20px 0;
+  }
+  .header .header-image {
+    padding: 0 0 30px;
+  }
 }

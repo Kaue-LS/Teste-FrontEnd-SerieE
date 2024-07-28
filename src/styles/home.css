@@ -1,6 +1,11 @@
 .home {
   background-color: white;
 }
-.home-content {
-  padding: 40px 120px 0 120px;
+.home .content {
+  padding: 20px 20px 0 20px;
+}
+@media only screen and (min-width: 768px) {
+  .home .content {
+    padding: 40px 120px 0 120px;
+  }
 }
