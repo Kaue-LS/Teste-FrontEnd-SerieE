@@ -2,7 +2,7 @@ import React from "react";
 
 const SearchIcon = () => {
   return (
-    <svg width="19px" height="19px" viewBox="0 0 19 19" version="1.1">
+    <svg width="25px" height="25px" viewBox="0 0 19 19" version="1.1">
       <title>Shape@1,5x</title>
       <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
         <g
