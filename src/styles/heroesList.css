@@ -1,0 +1,72 @@
+.heroesList {
+  padding: 0 0 150px 0;
+}
+.heroesList .content {
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(200px, 1fr)
+  ); /* Ajuste os valores conforme necessário */
+  gap: 35px 20px; /* Combinação de row-gap e column-gap */
+}
+.heroesList .content .card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 240px;
+  margin-inline: auto;
+}
+.heroesList .content .card .image {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  border-bottom: 4px solid var(--background-red);
+}
+.heroesList .content .card .image a {
+  display: block;
+  width: 100%;
+  max-width: 240px;
+  height: 100%;
+  max-height: 230px;
+}
+.heroesList .content .card .image a img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.heroesList .content .card .nameIcon {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.heroesList .content .card .nameIcon a {
+  color: var(--color-lightBlack);
+  font-weight: 700;
+  font-size: 15px;
+  width: 80%;
+}
+.heroesList .content .card .nameIcon svg {
+  margin: 0 0 auto auto;
+  width: 17px;
+  height: 17px;
+}
+
+@media only screen and (min-width: 768px) {
+  .heroesList .content {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    row-gap: 50px;
+    column-gap: 40px;
+  }
+  .heroesList .content .card {
+    margin: 0;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .heroesList .content .card {
+    margin-inline: auto;
+  }
+}
