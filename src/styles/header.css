@@ -22,12 +22,17 @@
 }
 .header .header-title {
   text-align: center;
+  padding: 20px 0;
 }
 .header .header-title h1 {
   padding: 0 0px 10px 0;
 }
 
 @media only screen and (min-width: 768px) {
+  .header .header-title {
+    text-align: center;
+    padding: 0px 0;
+  }
   .header .header-image .desktop {
     display: block;
   }

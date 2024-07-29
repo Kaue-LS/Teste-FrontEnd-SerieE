@@ -7,8 +7,10 @@ export default function Header() {
   return (
     <header className="header">
       <div className="header-image">
-        <img src={logoDesk} className="desktop" alt="Marvel Search Heroes" />
-        <img src={logoMob} className="mobile" alt="Marvel Search Heroes" />
+        <a href="/" rel="noopener noreferrer">
+          <img src={logoDesk} className="desktop" alt="Marvel Search Heroes" />
+          <img src={logoMob} className="mobile" alt="Marvel Search Heroes" />
+        </a>
       </div>
       <div className="header-title">
         <h1>EXPLORE O UNIVERSO</h1>

@@ -236,6 +236,7 @@
     height: 100%;
     max-height: 170px;
   }
+
   .heroInfo .details .description .shows-rating span {
     color: var(--color-lightBlack);
     font-size: 15px;
@@ -256,6 +257,7 @@
   }
   .heroInfo .details .description .shows-rating .rating {
     display: inline-flex;
+    flex-direction: row;
     padding-bottom: 40px;
     gap: 15px;
   }

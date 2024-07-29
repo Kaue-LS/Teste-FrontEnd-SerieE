@@ -7,7 +7,13 @@ export default function HeroPage() {
       <header className="header">
         <div className="content">
           <div className="logo">
-            <img src={logoMob} className="mobile" alt="Marvel Search Heroes" />
+            <a href="/" rel="noopener noreferrer">
+              <img
+                src={logoMob}
+                className="mobile"
+                alt="Marvel Search Heroes"
+              />
+            </a>
           </div>
           <SearchSection page={""} />
         </div>
