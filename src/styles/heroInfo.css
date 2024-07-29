@@ -16,17 +16,18 @@
   max-width: 100%;
 }
 .heroInfo .details .description h1 {
-  font-size: 36px;
+  font-size: 30px;
 }
+
 .heroInfo .details .description .nameIcon {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 .heroInfo .details .description .nameIcon svg {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
 }
 .heroInfo .details .description .nameIcon.largeName h1 {
   font-size: 26px;
@@ -35,9 +36,10 @@
 .heroInfo .details .description .about {
   color: var(--color-lightGray);
   text-align: left;
-  line-height: 38px;
-  font-size: 18px;
+  line-height: 24px;
+  font-size: 14px;
   font-weight: 500;
+  padding-bottom: 50px;
 }
 
 .heroInfo .details .description .shows-rating {
@@ -141,8 +143,8 @@
 .heroInfo .details .thumbnail {
   display: block;
   width: 100%;
-  max-width: 600px;
-  margin-left: auto;
+  max-width: 100%;
+  margin-inline:auto;
   margin-bottom: 30px;
 }
 .heroInfo .details .thumbnail img {
@@ -153,7 +155,7 @@
 }
 
 .heroInfo .latest-releases {
-  padding-bottom: 100px;
+  padding-bottom: 50px;
   display: block;
   width: 100%;
   max-width: 100%;
@@ -166,7 +168,6 @@
 }
 .heroInfo .latest-releases .releases {
   display: grid;
-  grid-template-columns: 1fr 1fr;
   column-gap: 30px;
   row-gap: 40px;
 }
@@ -175,7 +176,8 @@
   flex-direction: column;
   gap: 25px;
   width: 100%;
-  max-width: 100%;
+  max-width: 150px;
+  margin: 0 auto auto;
 }
 .heroInfo .latest-releases .releases article img {
   display: block;
@@ -186,12 +188,42 @@
 }
 
 .heroInfo .latest-releases .releases article p {
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--color-lightBlack);
+  font-size: 14px;
 }
 
 @media only screen and (min-width: 768px) {
+  .heroInfo .latest-releases {
+    padding-bottom: 100px;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+  }
+  .heroInfo .details .description .nameIcon svg{
+    height: 40px;
+    width: 40px;
+  }
+  .heroInfo .details .description h1{
+    font-size: 36px;
+  }
+  .heroInfo .details .description .nameIcon {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+  .heroInfo .details .description .about {
+    color: var(--color-lightGray);
+    text-align: left;
+    line-height: 38px;
+    font-size: 18px;
+    font-weight: 500;
+    padding-bottom: 50px;
+  }
+  .heroInfo .latest-releases .releases article p{
+    color: var(--color-lightBlack);
+    font-size: 18px;
+    font-weight: 600;
+  }
   .heroInfo .latest-releases .releases {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -218,7 +250,7 @@
   }
   .heroInfo .latest-releases .releases {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     column-gap: 70px;
     row-gap: 80px;
   }
@@ -310,6 +342,9 @@
 }
 
 @media only screen and (min-width: 1024px) {
+  .heroInfo .details .thumbnail{
+    margin-left: 60px;
+  }
   .heroInfo .latest-releases .releases {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
