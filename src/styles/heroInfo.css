@@ -170,6 +170,7 @@
   display: grid;
   column-gap: 30px;
   row-gap: 40px;
+  justify-items: start;
 }
 .heroInfo .latest-releases .releases article {
   display: flex;
