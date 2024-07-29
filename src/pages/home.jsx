@@ -8,7 +8,7 @@ export default function Home() {
     <main className="home">
       <div className="content">
         <Header />
-        <SearchSection />
+        <SearchSection page={"home"} />
         <section>
           <Switch />
           {/* Heroes List */}

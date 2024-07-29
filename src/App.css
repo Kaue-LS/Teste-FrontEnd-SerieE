@@ -5,3 +5,6 @@
 @import "./styles/searchBar.css";
 @import "./styles/switch.css";
 @import "./styles/heroesList.css";
+
+@import "./styles/heroPage.css";
+@import "./styles/heroInfo.css";

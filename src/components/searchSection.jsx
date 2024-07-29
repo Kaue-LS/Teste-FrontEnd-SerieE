@@ -1,8 +1,8 @@
 import React from "react";
 import SearchIcon from "../assets/lupa/searchIcon";
-export default function SearchSection() {
+export default function SearchSection({ page }) {
   return (
-    <section className="search">
+    <section className={`search ${page}`}>
       <div className="content">
         <button className="iconButton">
           <span>

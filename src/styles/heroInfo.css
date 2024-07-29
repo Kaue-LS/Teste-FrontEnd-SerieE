@@ -1,0 +1,46 @@
+.heroInfo {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+}
+.heroInfo .details {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.heroInfo .details .description {
+  display: block;
+  width: 100%;
+  max-width: 350px;
+}
+.heroInfo .details .description .nameIcon {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+.heroInfo .details .description .about {
+  color: var(--color-lightGray);
+  text-align: left;
+  line-height: 38px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.heroInfo .details .description .nameIcon svg {
+  height: 30px;
+  width: 30px;
+}
+
+.heroInfo .details .thumbnail {
+  display: block;
+  width: 100%;
+  max-width: 600px;
+  margin-left: 150px;
+}
+.heroInfo .details .thumbnail img {
+  display: block;
+  width: 100%;
+  max-width: max-content;
+  margin: auto;
+}

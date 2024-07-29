@@ -3,19 +3,19 @@
   max-width: 100%;
   display: flex;
   justify-content: center;
-  padding: 20px 0 40px;
 }
 .search .content {
   width: 100%;
-  margin-inline: auto;
-  max-width: 90%;
+  max-width: 600px;
+  margin: 0 auto 0 70px;
   height: 100%;
   padding: 10px 10px;
   max-height: max-content;
   display: inline-flex;
-  background-color: var(--background-lightRed);
   border-radius: 35px;
+  background-color: #fff;
 }
+
 .search .content .iconButton {
   background: none;
   border: none;
@@ -34,20 +34,43 @@
   margin-left: 15px;
 }
 .search .content input::placeholder {
+  color: var(--color-lightGray);
+  font-size: 12px;
+}
+
+/* home page */
+.search.home {
+  width: 100%;
+  margin-inline: auto;
+  height: 100%;
+  padding: 10px 10px;
+  max-height: max-content;
+  display: inline-flex;
+  border-radius: 35px;
+  padding: 20px 0 40px;
+}
+.search.home .content {
+  background-color: var(--background-lightRed);
+  max-width: 90%;
+}
+.search.home .content input::placeholder {
   color: var(--background-red);
   opacity: 60%;
   font-size: 12px;
 }
 
+/* desktop */
 @media only screen and (min-width: 768px) {
   .search {
     width: 100%;
     max-width: 100%;
     display: flex;
     justify-content: center;
+  }
+  .search.home {
     padding: 50px 0 90px;
   }
-  .search .content {
+  .search.home .content {
     width: 100%;
     margin-inline: auto;
     max-width: calc(100% - 150px);
@@ -55,19 +78,29 @@
     padding: 15px 20px;
     max-height: max-content;
     display: inline-flex;
-    background-color: var(--background-lightRed);
     border-radius: 35px;
   }
+  .search .content {
+    padding: 10px 20px;
+  }
   .search .content input {
-    font-size: 18px;
+    font-size: 14px;
+    font-weight: 600;
     margin-left: 30px;
   }
   .search .content input::placeholder {
+    font-size: 14px;
+  }
+  .search.home .content input::placeholder {
     color: var(--background-red);
     opacity: 60%;
     font-size: 18px;
   }
   .search .content .iconButton span svg {
+    width: 20px;
+    height: 20px;
+  }
+  .search.home .content .iconButton span svg {
     width: auto;
     height: auto;
   }
