@@ -1,34 +1,35 @@
 import { useState } from "react";
 import StarInactive from "../assets/icons/starInactive";
 
-const RatingInput = ({ rate, value, setRate, isChecked, onChange }) => {
+const RatingInput = ({ rate, value, isChecked, onChange }) => {
   return (
-    <div>
+    <div className={`star ${isChecked ? "checked" : ""}`}>
       <input
         value={value}
         onChange={() => onChange(value)}
-        className={isChecked ? "checked" : ""}
         name="rating"
         type="radio"
-        checked={isChecked}
+        checked={rate === value}
       />
-      <StarInactive />
     </div>
   );
 };
 
 export const RatingSystem = () => {
   const [rate, setRate] = useState(0);
-  const maxRating = 5; // Máximo de estrelas para a classificação
+  const maxRating = 5;
 
   const handleRatingChange = (value) => {
+    console.log("ativou");
     setRate(value);
   };
 
+  console.log(rate);
   return (
-    <div>
+    <div className="content">
       {Array.from({ length: maxRating }, (_, index) => (
         <RatingInput
+          rate={rate}
           key={index + 1}
           value={index + 1}
           isChecked={rate >= index + 1}

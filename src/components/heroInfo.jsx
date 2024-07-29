@@ -13,7 +13,9 @@ export default function HeroInfo({ data }) {
       {/* details */}
       <div className="details">
         <div className="description">
-          <div className="nameIcon">
+          <div
+            className={`nameIcon ${data.name.length > 10 ? "largeName" : ""}`}
+          >
             <h1>{data.name}</h1>
             <FavoriteIconEmpty />
           </div>
@@ -22,14 +24,14 @@ export default function HeroInfo({ data }) {
           </div>
           <div className="shows-rating">
             <div className="comicSeries">
-              <div>
+              <div className="comics">
                 <span>Quadrinhos</span>
                 <div>
                   <ComicsIcon />
                   {data.comics.available}
                 </div>
               </div>
-              <div>
+              <div className="movies">
                 <span>Filmes</span>
                 <div>
                   <VideoIcon />
@@ -38,11 +40,13 @@ export default function HeroInfo({ data }) {
               </div>
             </div>
             <div className="rating">
-              <span>rating: </span>
+              <span>Rating:</span>
               <RatingSystem />
             </div>
             <div className="lastComic">
-              <p>Ultimo quadrinho: {DateFormatter(data.modified)}</p>
+              <span>
+                Ultimo quadrinho: <p>{DateFormatter(data.modified)}</p>
+              </span>
             </div>
           </div>
         </div>
@@ -57,8 +61,8 @@ export default function HeroInfo({ data }) {
       </div>
 
       {/* lançamentos */}
-      <section aria-labelledby="latest-releases">
-        <h2 id="latest-releases">Últimos lançamentos</h2>
+      <section className="latest-releases">
+        <h2>Últimos lançamentos</h2>
 
         <div className="releases">
           {data.comics.items.map((item, index) => (

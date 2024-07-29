@@ -4,11 +4,8 @@
 .heroesList .content {
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(
-    auto-fill,
-    minmax(200px, 1fr)
-  ); /* Ajuste os valores conforme necessário */
-  gap: 35px 20px; /* Combinação de row-gap e column-gap */
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 35px 20px;
 }
 .heroesList .content .card {
   display: flex;

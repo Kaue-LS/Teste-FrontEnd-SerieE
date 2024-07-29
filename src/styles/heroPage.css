@@ -22,3 +22,14 @@
   width: 100%;
   max-width: max-content;
 }
+
+@media only screen and (min-width: 768px) {
+  .heroPage {
+    padding: 40px 60px;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .heroPage {
+    padding: 50px 100px;
+  }
+}
