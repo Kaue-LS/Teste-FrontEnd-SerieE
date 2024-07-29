@@ -1,5 +1,5 @@
 .heroPage {
-  padding: 50px 100px;
+  padding: 20px 20px;
   background-color: var(--background-light);
 }
 
@@ -8,6 +8,7 @@
 }
 .heroPage .header .content {
   display: flex;
+  flex-direction: column;
 }
 .heroPage .header .content .logo {
   display: block;
@@ -15,7 +16,7 @@
   max-height: 100%;
   width: 100%;
   max-width: 250px;
-  margin: auto;
+  margin: 0px auto 30px;
 }
 .heroPage .header .content .logo img {
   display: block;
@@ -26,6 +27,18 @@
 @media only screen and (min-width: 768px) {
   .heroPage {
     padding: 40px 60px;
+  }
+  .heroPage .header .content {
+    display: flex;
+    flex-direction: row;
+  }
+  .heroPage .header .content .logo {
+    display: block;
+    height: 100%;
+    max-height: 100%;
+    width: 100%;
+    max-width: 250px;
+    margin: auto;
   }
 }
 @media only screen and (min-width: 1024px) {

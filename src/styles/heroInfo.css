@@ -5,14 +5,18 @@
 }
 .heroInfo .details {
   display: flex;
-  justify-content: flex-start;
-  padding-bottom: 150px;
+  flex-direction: column-reverse;
+  justify-content: center;
+  padding-bottom: 50px;
 }
 
 .heroInfo .details .description {
   display: block;
   width: 100%;
-  max-width: 350px;
+  max-width: 100%;
+}
+.heroInfo .details .description h1 {
+  font-size: 36px;
 }
 .heroInfo .details .description .nameIcon {
   display: flex;
@@ -42,21 +46,23 @@
 }
 .heroInfo .details .description .shows-rating span {
   color: var(--color-lightBlack);
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 600;
   display: inline-flex;
 }
 .heroInfo .details .description .shows-rating span p {
   color: var(--color-lightBlack);
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 400;
   margin-left: 10px;
 }
 .heroInfo .details .description .shows-rating .comicSeries {
   display: inline-flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 30px;
   align-items: center;
   padding-bottom: 30px;
+  gap: 60px;
 }
 
 .heroInfo .details .description .shows-rating .comicSeries .comics,
@@ -73,8 +79,9 @@
 }
 
 .heroInfo .details .description .shows-rating .rating {
-  display: inline-flex;
-  padding-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 20px;
   gap: 15px;
 }
 .heroInfo .details .description .shows-rating .rating .content {
@@ -84,14 +91,14 @@
 .heroInfo .details .description .shows-rating .rating .content .star {
   position: relative;
   display: block;
-  height: 15px;
-  width: 15px;
+  height: 25px;
+  width: 25px;
 }
 .heroInfo .details .description .shows-rating .rating .content .star::after {
   content: "";
   display: block;
-  width: 15px;
-  height: 15px;
+  width: 25px;
+  height: 25px;
   background-image: url("../assets/icons/star/star.svg");
   background-size: cover;
   background-repeat: no-repeat;
@@ -110,9 +117,9 @@
   .star.checked::after {
   content: "";
   display: block;
-  width: 15px;
-  height: 15px;
-  background-image: url("../assets/icons/star/starChecked.svg"); /* Caminho para o seu arquivo SVG */
+  width: 25px;
+  height: 25px;
+  background-image: url("../assets/icons/star/starChecked.svg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -135,7 +142,8 @@
   display: block;
   width: 100%;
   max-width: 600px;
-  margin-left: 150px;
+  margin-left: auto;
+  margin-bottom: 30px;
 }
 .heroInfo .details .thumbnail img {
   display: block;
@@ -154,27 +162,27 @@
   color: var(--color-lightBlack);
   font-size: 22px;
   font-weight: 600;
-  padding: 0 0 80px 0;
+  padding: 0 0 40px 0;
 }
 .heroInfo .latest-releases .releases {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  column-gap: 70px;
-  row-gap: 80px;
+  column-gap: 30px;
+  row-gap: 40px;
 }
 .heroInfo .latest-releases .releases article {
   display: flex;
   flex-direction: column;
   gap: 25px;
   width: 100%;
-  max-width: 130px;
+  max-width: 100%;
 }
 .heroInfo .latest-releases .releases article img {
   display: block;
   width: 100%;
-  max-width: 130px;
+  max-width: 100%;
   height: 100%;
-  max-height: 170px;
+  max-height: 100%;
 }
 
 .heroInfo .latest-releases .releases article p {
@@ -189,6 +197,113 @@
     grid-template-columns: 1fr 1fr 1fr 1fr;
     column-gap: 70px;
     row-gap: 80px;
+  }
+  .heroInfo .details {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding-bottom: 150px;
+  }
+  .heroInfo .details .description {
+    display: block;
+    width: 100%;
+    max-width: 350px;
+  }
+  .heroInfo .details .thumbnail {
+    display: block;
+    width: 100%;
+    max-width: 600px;
+    margin-left: 150px;
+    margin-bottom: auto;
+  }
+  .heroInfo .latest-releases .releases {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 70px;
+    row-gap: 80px;
+  }
+  .heroInfo .latest-releases .releases article {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 100%;
+    max-width: 130px;
+  }
+  .heroInfo .latest-releases .releases article img {
+    display: block;
+    width: 100%;
+    max-width: 130px;
+    height: 100%;
+    max-height: 170px;
+  }
+  .heroInfo .details .description .shows-rating span {
+    color: var(--color-lightBlack);
+    font-size: 15px;
+    font-weight: 600;
+    display: inline-flex;
+  }
+  .heroInfo .details .description .shows-rating span p {
+    color: var(--color-lightBlack);
+    font-size: 15px;
+    font-weight: 400;
+    margin-left: 10px;
+  }
+  .heroInfo .details .description .shows-rating .comicSeries {
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 30px;
+  }
+  .heroInfo .details .description .shows-rating .rating {
+    display: inline-flex;
+    padding-bottom: 40px;
+    gap: 15px;
+  }
+  .heroInfo .details .description .shows-rating .rating .content .star {
+    position: relative;
+    display: block;
+    height: 15px;
+    width: 15px;
+  }
+  .heroInfo .details .description .shows-rating .rating .content .star::after {
+    content: "";
+    display: block;
+    width: 15px;
+    height: 15px;
+    background-image: url("../assets/icons/star/star.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    right: 0;
+  }
+  .heroInfo
+    .details
+    .description
+    .shows-rating
+    .rating
+    .content
+    .star.checked::after {
+    content: "";
+    display: block;
+    width: 15px;
+    height: 15px;
+    background-image: url("../assets/icons/star/starChecked.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    right: 0;
+  }
+  .heroInfo .latest-releases h2 {
+    color: var(--color-lightBlack);
+    font-size: 22px;
+    font-weight: 600;
+    padding: 0 0 80px 0;
   }
 }
 
