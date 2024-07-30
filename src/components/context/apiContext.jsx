@@ -19,7 +19,7 @@ export function useApiContext() {
 
 export function ApiProvider({ children }) {
   const { results } = dataJson.data;
-  const [filteredData, setFilteredData] = useState([]);
+  const [modifiedData, setModifiedData] = useState([]);
   const [normalData, setNormalData] = useState([]);
   const [loading, setLoading] = useState({
     active: false,
@@ -35,7 +35,7 @@ export function ApiProvider({ children }) {
         ...item,
         favorite: false,
       }));
-    setFilteredData(response);
+    setModifiedData(response);
     setNormalData(response);
   }, [results]);
 
@@ -44,7 +44,7 @@ export function ApiProvider({ children }) {
   }, [ApplyFavoriteRow]);
 
   useEffect(() => {
-    if (filteredData.length === 0) {
+    if (modifiedData.length === 0) {
       setLoading({
         active: true,
         type: "loading",
@@ -55,28 +55,28 @@ export function ApiProvider({ children }) {
         type: "",
       });
     }
-  }, [filteredData, pageSelect]);
+  }, [modifiedData, pageSelect]);
   useEffect(() => {
     if (slicedPage.length === 0) {
-      const totalPages = Math.ceil(filteredData.length / 20);
+      const totalPages = Math.ceil(modifiedData.length / 20);
       const newPages = Array.from({ length: totalPages }, (_, index) => {
         const startIndex = index * 20;
         const endIndex = startIndex + 20;
         return {
           pageNumber: index + 1,
-          items: filteredData.slice(startIndex, endIndex),
+          items: modifiedData.slice(startIndex, endIndex),
         };
       });
 
       setSlicedPage(newPages);
     }
-  }, [filteredData, pageSelect, slicedPage, setSlicedPage]);
+  }, [modifiedData, pageSelect, slicedPage, setSlicedPage]);
 
   return (
     <apiContext.Provider
       value={{
-        filteredData,
-        setFilteredData,
+        modifiedData,
+        setModifiedData,
         normalData,
         loading,
         setLoading,

@@ -1,4 +1,4 @@
-import { act, useEffect } from "react";
+import { useEffect } from "react";
 import { useApiContext } from "./context/apiContext";
 
 export default function LoadingSystem({ active, type }) {

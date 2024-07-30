@@ -4,7 +4,7 @@ import HeroIcon from "../assets/icons/heroIcon";
 import { useApiContext } from "./context/apiContext";
 
 export default function Switch() {
-  const { filteredData, normalData, setLoading, slicedPage, setSlicedPage } =
+  const { modifiedData, normalData, setLoading, slicedPage, setSlicedPage } =
     useApiContext();
   const [favoriteList, setFavoriteList] = useState(false);
   const [prevList, setPrevList] = useState([]);
@@ -40,7 +40,7 @@ export default function Switch() {
         type: "noFavorite",
       });
       setFavoriteList(false);
-      setSlicedPage(normalData);
+      setSlicedPage(prevList);
     }
   };
   const filterToOrder = () => {
@@ -51,7 +51,7 @@ export default function Switch() {
     <div className="switch">
       <div className="content">
         <div className="totalHeroes">
-          <p>Encontrados {filteredData.length} heróis</p>
+          <p>Encontrados {modifiedData.length} heróis</p>
         </div>
         <div className="switchOptions desktop">
           <div className="nameOption">

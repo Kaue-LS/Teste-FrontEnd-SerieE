@@ -7,8 +7,8 @@ import LoadingSystem from "./loading";
 
 export default function HeroesList() {
   const {
-    filteredData,
-    setFilteredData,
+    modifiedData,
+    setModifiedData,
     pageSelect,
     slicedPage,
     setSlicedPage,
@@ -32,7 +32,7 @@ export default function HeroesList() {
     });
     setSlicedPage(updatedSlicedPage);
 
-    const updatedFilteredData = filteredData.map((item) => {
+    const updatedmodifiedData = modifiedData.map((item) => {
       if (item.id === itemId) {
         return {
           ...item,
@@ -41,7 +41,7 @@ export default function HeroesList() {
       }
       return item;
     });
-    setFilteredData(updatedFilteredData);
+    setModifiedData(updatedmodifiedData);
   };
 
   const RemoveFavorite = (itemId) => {
@@ -71,7 +71,7 @@ export default function HeroesList() {
       }
       return item;
     });
-    setFilteredData(updatedData);
+    setModifiedData(updatedData);
   };
 
   return slicedPage.length ? (

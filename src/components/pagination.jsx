@@ -2,7 +2,6 @@ import { useApiContext } from "./context/apiContext";
 
 export default function PaginationDots() {
   const { slicedPage, setPageSelect, pageSelect } = useApiContext();
-  console.log(slicedPage);
   return (
     <div className={`pagination `}>
       {slicedPage.map((props, index) => (

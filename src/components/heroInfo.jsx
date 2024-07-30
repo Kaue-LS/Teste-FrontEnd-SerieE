@@ -9,13 +9,13 @@ import { useApiContext } from "./context/apiContext";
 import { useEffect, useState } from "react";
 
 export default function HeroInfo({ data }) {
-  const { filteredData, setFilteredData } = useApiContext();
+  const { modifiedData, setModifiedData } = useApiContext();
   const [isFavorite, setIsFavorite] = useState(false);
   const dataImage =
     data.thumbnail.path + "/portrait_xlarge." + data.thumbnail.extension;
 
   const ApplyFavorite = (itemId) => {
-    const updatedData = filteredData.map((hero) => {
+    const updatedData = modifiedData.map((hero) => {
       if (hero.id === itemId) {
         return {
           ...hero,
@@ -24,12 +24,12 @@ export default function HeroInfo({ data }) {
       }
       return hero;
     });
-    setFilteredData(updatedData);
+    setModifiedData(updatedData);
     setIsFavorite(true);
   };
 
   const RemoveFavorite = (itemId) => {
-    const updatedData = filteredData.map((hero) => {
+    const updatedData = modifiedData.map((hero) => {
       if (hero.id === itemId) {
         return {
           ...hero,
@@ -38,7 +38,7 @@ export default function HeroInfo({ data }) {
       }
       return hero;
     });
-    setFilteredData(updatedData);
+    setModifiedData(updatedData);
     setIsFavorite(false);
   };
 
