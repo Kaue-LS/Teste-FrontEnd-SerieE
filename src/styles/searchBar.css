@@ -33,6 +33,7 @@
 .search .content input {
   font-size: 12px;
   margin-left: 15px;
+  width: 100%;
 }
 .search .content input::placeholder {
   color: var(--color-lightGray);
@@ -53,7 +54,14 @@
 .search.home .content {
   background-color: var(--background-lightRed);
   max-width: 90%;
+  transition: 0.3s ease;
 }
+.search.home .content:hover {
+  -webkit-box-shadow: 0px 0px 13px -1px rgba(250, 5, 5, 1);
+  -moz-box-shadow: 0px 0px 13px -1px rgba(250, 5, 5, 1);
+  box-shadow: 0px 0px 13px -1px rgba(250, 5, 5, 1);
+}
+
 .search.home .content input::placeholder {
   color: var(--background-red);
   opacity: 60%;

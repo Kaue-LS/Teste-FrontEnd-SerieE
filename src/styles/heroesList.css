@@ -17,12 +17,11 @@
 
 .heroesList .content .card:hover .image {
   overflow: hidden;
-  transition: 0.3s;
+  transition: transform 0.3s ease;
 }
 .heroesList .content .card:hover .image img {
-  width: 300px;
-  height: 300px;
-  transition: 0.3s;
+  transform: scale(1.2);
+  transition: transform 0.3s ease;
 }
 .heroesList .content .card .image {
   display: block;
