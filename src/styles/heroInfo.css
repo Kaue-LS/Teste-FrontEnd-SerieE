@@ -15,6 +15,7 @@
   width: 100%;
   max-width: 100%;
 }
+
 .heroInfo .details .description h1 {
   font-size: 30px;
 }
@@ -144,7 +145,7 @@
   display: block;
   width: 100%;
   max-width: 100%;
-  margin-inline:auto;
+  margin-inline: auto;
   margin-bottom: 30px;
 }
 .heroInfo .details .thumbnail img {
@@ -199,11 +200,11 @@
     width: 100%;
     max-width: 100%;
   }
-  .heroInfo .details .description .nameIcon svg{
+  .heroInfo .details .description .nameIcon svg {
     height: 40px;
     width: 40px;
   }
-  .heroInfo .details .description h1{
+  .heroInfo .details .description h1 {
     font-size: 36px;
   }
   .heroInfo .details .description .nameIcon {
@@ -220,7 +221,7 @@
     font-weight: 500;
     padding-bottom: 50px;
   }
-  .heroInfo .latest-releases .releases article p{
+  .heroInfo .latest-releases .releases article p {
     color: var(--color-lightBlack);
     font-size: 18px;
     font-weight: 600;
@@ -343,7 +344,7 @@
 }
 
 @media only screen and (min-width: 1024px) {
-  .heroInfo .details .thumbnail{
+  .heroInfo .details .thumbnail {
     margin-left: 60px;
   }
   .heroInfo .latest-releases .releases {

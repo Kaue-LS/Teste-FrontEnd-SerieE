@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import FavoriteEmptyIcon from "../assets/icons/favoriteEmptyIcon";
 import { Link } from "react-router-dom";
 import FavoriteIcon from "../assets/icons/favoriteIcon";
@@ -7,7 +7,6 @@ import { useApiContext } from "./context/apiContext";
 export default function HeroesList() {
   const { filteredData, setFilteredData } = useApiContext();
 
-  console.log(filteredData, "heroList");
   const ApplyFavorite = (itemId) => {
     const updatedData = filteredData.map((item) => {
       if (item.id === itemId) {

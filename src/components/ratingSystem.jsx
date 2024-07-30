@@ -1,5 +1,4 @@
 import { useState } from "react";
-import StarInactive from "../assets/icons/starInactive";
 
 const RatingInput = ({ rate, value, isChecked, onChange }) => {
   return (
