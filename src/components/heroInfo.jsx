@@ -53,6 +53,9 @@ export default function HeroInfo({ data }) {
 
   return (
     <section className="heroInfo">
+      <div className="titleBackground">
+        <span>{data.name}</span>
+      </div>
       {/* details */}
       <div className="details">
         <div className="description">

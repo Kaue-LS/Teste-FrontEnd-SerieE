@@ -2,14 +2,21 @@
   display: block;
   width: 100%;
   max-width: 100%;
+  position: relative;
 }
+
 .heroInfo .details {
   display: flex;
   flex-direction: column-reverse;
   justify-content: center;
   padding-bottom: 50px;
+  position: relative;
+  z-index: 6;
 }
 
+.heroInfo .titleBackground {
+  display: none;
+}
 .heroInfo .details .description {
   display: block;
   width: 100%;
@@ -194,6 +201,24 @@
 }
 
 @media only screen and (min-width: 768px) {
+  .heroInfo .titleBackground {
+    font-size: 300px;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    color: white;
+    opacity: 50%;
+    font-weight: 700;
+    text-wrap: nowrap;
+    overflow: hidden;
+  }
+  .heroInfo .titleBackground span {
+    margin-left: 100px;
+  }
   .heroInfo .latest-releases {
     padding-bottom: 100px;
     display: block;
