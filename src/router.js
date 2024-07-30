@@ -3,8 +3,6 @@ import Home from "./pages/home";
 
 import {
     createBrowserRouter,
-    createRoutesFromElements,
-    Route
 } from "react-router-dom";
 import HeroePage from "./pages/heroPage";
 

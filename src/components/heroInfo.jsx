@@ -14,7 +14,7 @@ export default function HeroInfo({ data }) {
       <div className="details">
         <div className="description">
           <div
-            className={`nameIcon ${data.name.length > 10 ? "largeName" : ""}`}
+          // className={`nameIcon ${data.name.length > 10 ? "largeName" : ""}`}
           >
             <h1>{data.name}</h1>
             <FavoriteIconEmpty />

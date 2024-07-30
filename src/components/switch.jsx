@@ -1,15 +1,33 @@
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import FavoriteIcon from "../assets/icons/favoriteIcon";
 import HeroIcon from "../assets/icons/heroIcon";
-import dataJson from "../components/API/application.json";
+import { useApiContext } from "./context/apiContext";
 export default function Switch() {
-  const data = dataJson;
+  const { filteredData, setFilteredData } = useApiContext();
+  const data = filteredData;
   const [favoriteList, setFavoriteList] = useState(false);
+  console.log({ data }, "antes");
+
+  const filterFavoriteData = useCallback(() => {
+    console.log(data, "na function");
+
+    const filtered = data.filter((item) => {
+      console.log("item", item);
+      return item.favorite === true;
+    });
+    console.log(filtered);
+    setFilteredData(filtered);
+  }, [data, setFilteredData]);
+
+  useEffect(() => {
+    if (favoriteList) filterFavoriteData(); // Chama a função de filtragem sempre que os dados mudam
+  }, [favoriteList, filterFavoriteData]);
+
   return (
     <div className="switch">
       <div className="content">
         <div className="totalHeroes">
-          <p>Encontrados {data.data.count} heróis</p>
+          <p>Encontrados {data.length} heróis</p>
         </div>
         <div className="switchOptions desktop">
           <div className="nameOption">

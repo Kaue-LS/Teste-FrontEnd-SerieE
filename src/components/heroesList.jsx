@@ -2,16 +2,14 @@ import React, { useState, useEffect } from "react";
 import FavoriteEmptyIcon from "../assets/icons/favoriteEmptyIcon";
 import { Link } from "react-router-dom";
 import FavoriteIcon from "../assets/icons/favoriteIcon";
+import { useApiContext } from "./context/apiContext";
 
-export default function HeroesList({ data }) {
-  const [apiData, setApiData] = useState([]);
+export default function HeroesList() {
+  const { filteredData, setFilteredData } = useApiContext();
 
-  useEffect(() => {
-    setApiData(data);
-  }, [data]);
-
+  console.log(filteredData, "heroList");
   const ApplyFavorite = (itemId) => {
-    const updatedData = apiData.map((item) => {
+    const updatedData = filteredData.map((item) => {
       if (item.id === itemId) {
         return {
           ...item,
@@ -20,11 +18,11 @@ export default function HeroesList({ data }) {
       }
       return item;
     });
-    setApiData(updatedData);
+    setFilteredData(updatedData);
   };
 
   const RemoveFavorite = (itemId) => {
-    const updatedData = apiData.map((item) => {
+    const updatedData = filteredData.map((item) => {
       if (item.id === itemId) {
         return {
           ...item,
@@ -33,13 +31,13 @@ export default function HeroesList({ data }) {
       }
       return item;
     });
-    setApiData(updatedData);
+    setFilteredData(updatedData);
   };
 
   return (
     <section className="heroesList">
       <div className="content">
-        {apiData.map((item) => (
+        {filteredData.map((item) => (
           <div key={item.id} className="card">
             <div className="image">
               <Link to={`/${item.id}`}>

@@ -1,20 +1,22 @@
 import { useCallback, useEffect, useState } from "react";
-import APIJson from "./application.json";
-export default function ApplyModel() {
-  const dataJson = APIJson;
+import { useApiContext } from "../context/apiContext";
+
+export default function ApplyModel({ dataJson }) {
   const [filteredData, setFilteredData] = useState([]);
-  const ApplyFavoriteRow = useCallback(async () => {
-    const response = dataJson.data.results
+
+  const ApplyFavoriteRow = useCallback(() => {
+    const response = dataJson
       .filter((item) => item.name && item.name.length > 0)
       .map((item) => ({
         ...item,
         favorite: false,
       }));
     setFilteredData(response);
-  }, [dataJson.data.results]);
+  }, [dataJson]);
 
   useEffect(() => {
     ApplyFavoriteRow();
   }, [ApplyFavoriteRow]);
+
   return filteredData;
 }
