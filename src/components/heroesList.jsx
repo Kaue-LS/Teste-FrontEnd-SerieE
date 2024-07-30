@@ -57,12 +57,10 @@ export default function HeroesList() {
               {item.favorite ? (
                 <button onClick={() => RemoveFavorite(item.id)}>
                   <FavoriteIcon />
-                  Favorito
                 </button>
               ) : (
                 <button onClick={() => ApplyFavorite(item.id)}>
                   <FavoriteEmptyIcon />
-                  Desfavorito
                 </button>
               )}
             </div>

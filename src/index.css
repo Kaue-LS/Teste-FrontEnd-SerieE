@@ -163,6 +163,15 @@ input {
   border: none;
   outline: none;
 }
+button {
+  background-color: transparent;
+  border: none;
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: max-content;
+  max-height: 100%;
+}
 .content {
   padding: 0;
 }

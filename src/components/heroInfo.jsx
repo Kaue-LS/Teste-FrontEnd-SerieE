@@ -6,37 +6,50 @@ import { DateFormatter } from "./dateFormatter";
 import { RatingSystem } from "./ratingSystem";
 import FavoriteIcon from "../assets/icons/favoriteIcon";
 import { useApiContext } from "./context/apiContext";
+import { useEffect, useState } from "react";
 
 export default function HeroInfo({ data }) {
   const { filteredData, setFilteredData } = useApiContext();
-
+  const [isFavorite, setIsFavorite] = useState(false);
   const dataImage =
     data.thumbnail.path + "/portrait_xlarge." + data.thumbnail.extension;
-  const ApplyFavorite = (itemId) => {
-    const updatedData = filteredData.map((item) => {
-      if (item.id === itemId) {
-        return {
-          ...item,
-          favorite: true,
-        };
-      }
-      return item;
-    });
-    setFilteredData(updatedData);
-  };
 
-  const RemoveFavorite = (itemId) => {
-    const updatedData = filteredData.map((item) => {
-      if (item.id === itemId) {
+  const ApplyFavorite = (itemId) => {
+    console.log(isFavorite, "adicionar");
+
+    const updatedData = filteredData.map((hero) => {
+      if (hero.id === itemId) {
         return {
-          ...item,
+          ...hero,
           favorite: false,
         };
       }
-      return item;
+      return hero;
     });
     setFilteredData(updatedData);
+    setIsFavorite(true);
   };
+
+  const RemoveFavorite = (itemId) => {
+    const updatedData = filteredData.map((hero) => {
+      if (hero.id === itemId) {
+        return {
+          ...hero,
+          favorite: false,
+        };
+      }
+      return hero;
+    });
+    setFilteredData(updatedData);
+    setIsFavorite(false);
+  };
+
+  useEffect(() => {
+    if (data.favorite === undefined) {
+      data.favorite = false;
+    }
+    setIsFavorite(data.favorite);
+  }, [data]);
 
   return (
     <section className="heroInfo">
@@ -47,15 +60,13 @@ export default function HeroInfo({ data }) {
             className={`nameIcon ${data.name.length > 10 ? "largeName" : ""}`}
           >
             <h1>{data.name}</h1>
-            {data.favorite ? (
-              <button onClick={() => RemoveFavorite(data.id)}>
+            {isFavorite ? (
+              <button className="teste" onClick={() => RemoveFavorite(data.id)}>
                 <FavoriteIcon />
-                Favorito
               </button>
             ) : (
-              <button onClick={() => ApplyFavorite(data.id)}>
+              <button className="teste" onClick={() => ApplyFavorite(data.id)}>
                 <FavoriteEmptyIcon />
-                Desfavorito
               </button>
             )}
           </div>

@@ -6,7 +6,6 @@ import { useApiContext } from "./context/apiContext";
 export default function Switch() {
   const { filteredData, setFilteredData, normalData } = useApiContext();
   const [favoriteList, setFavoriteList] = useState(false);
-  const [alphabeticalList, setAlphabeticalList] = useState(false);
 
   const filterToFavorite = () => {
     const filtered = filteredData.filter((item) => item.favorite === true);
@@ -48,7 +47,7 @@ export default function Switch() {
               type="checkbox"
               name="switch"
               id=""
-              defaultChecked={false}
+              defaultCheked={false}
               checked={favoriteList}
             />
           </div>
@@ -63,14 +62,15 @@ export default function Switch() {
         </div>
         <div className="switchOptions mobile">
           <select
-          // onChange={(e) => {
-          //   if (e.target.value === "favorite") {
-          //     handleFavoriteClick();
-          //   } else {
-          //     handleAlphabeticalClick();
-          //   }
-          // }}
-          // value={favoriteList ? "favorite" : alphabeticalList ? "name" : ""}
+            onChange={(e) => {
+              if (e.target.value === "favorite") {
+                filterToFavorite();
+              } else {
+                filterToOrder();
+              }
+            }}
+            value={!favoriteList ? "name" : "favorite"}
+            defaultValue={"name"}
           >
             <option value="name">Ordenar por nome - A/Z</option>
             <option value="favorite">Somente favoritos</option>

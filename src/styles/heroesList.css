@@ -63,9 +63,10 @@
 
 @media only screen and (min-width: 768px) {
   .heroesList .content {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    row-gap: 50px;
-    column-gap: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 30px 30px;
+    width: 100%;
   }
   .heroesList .content .card {
     margin: 0;
