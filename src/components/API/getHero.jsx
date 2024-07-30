@@ -3,6 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import HeroInfo from "../heroInfo";
+import ApplyModel from "./applyModel";
 
 export default function GetHeroData() {
   const baseUrl = "https://gateway.marvel.com:443/v1/public/characters";

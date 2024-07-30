@@ -1,8 +1,10 @@
+import { useState } from "react";
 import FavoriteIcon from "../assets/icons/favoriteIcon";
 import HeroIcon from "../assets/icons/heroIcon";
 import dataJson from "../components/API/application.json";
 export default function Switch() {
   const data = dataJson;
+  const [favoriteList, setFavoriteList] = useState(false);
   return (
     <div className="switch">
       <div className="content">
@@ -19,7 +21,12 @@ export default function Switch() {
             <p>Ordenar por nome- A/Z</p>
           </div>
           <div className="switchButton">
-            <input type="checkbox" name="switch" id="" />
+            <input
+              onClick={() => setFavoriteList(!favoriteList)}
+              type="checkbox"
+              name="switch"
+              id=""
+            />
           </div>
           <div className="favoriteOption">
             <div className="favoriteIcon">
