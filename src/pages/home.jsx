@@ -5,6 +5,7 @@ import Switch from "../components/switch";
 import GetHeroesList from "../components/API/getHeroes";
 import { useApiContext } from "../components/context/apiContext";
 import Loading from "../components/loading";
+import PaginationDots from "../components/pagination";
 export default function Home() {
   const { loading } = useApiContext();
   return (
@@ -23,5 +24,10 @@ export default function Home() {
 }
 
 function SectionContent() {
-  return <GetHeroesList />;
+  return (
+    <div>
+      <GetHeroesList />
+      <PaginationDots />
+    </div>
+  );
 }

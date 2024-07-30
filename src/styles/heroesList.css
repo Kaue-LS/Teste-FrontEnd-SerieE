@@ -1,5 +1,5 @@
 .heroesList {
-  padding: 0 0 150px 0;
+  padding: 0 0 50px 0;
 }
 .heroesList .content {
   padding: 0;
@@ -62,6 +62,9 @@
 }
 
 @media only screen and (min-width: 768px) {
+  .heroesList {
+    padding: 0 0 150px 0;
+  }
   .heroesList .content {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));

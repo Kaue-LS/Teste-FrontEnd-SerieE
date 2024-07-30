@@ -63,6 +63,7 @@ export function ApiProvider({ children }) {
         const startIndex = index * 20;
         const endIndex = startIndex + 20;
         return {
+          pageNumber: index + 1,
           items: filteredData.slice(startIndex, endIndex),
         };
       });

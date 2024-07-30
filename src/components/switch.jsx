@@ -4,14 +4,8 @@ import HeroIcon from "../assets/icons/heroIcon";
 import { useApiContext } from "./context/apiContext";
 
 export default function Switch() {
-  const {
-    filteredData,
-    setFilteredData,
-    normalData,
-    setLoading,
-    slicedPage,
-    setSlicedPage,
-  } = useApiContext();
+  const { filteredData, normalData, setLoading, slicedPage, setSlicedPage } =
+    useApiContext();
   const [favoriteList, setFavoriteList] = useState(false);
   const [prevList, setPrevList] = useState([]);
   const handleSwitchChange = () => {
