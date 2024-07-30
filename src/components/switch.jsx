@@ -4,13 +4,23 @@ import HeroIcon from "../assets/icons/heroIcon";
 import { useApiContext } from "./context/apiContext";
 
 export default function Switch() {
-  const { filteredData, setFilteredData, normalData } = useApiContext();
+  const { filteredData, setFilteredData, normalData, setLoading } =
+    useApiContext();
   const [favoriteList, setFavoriteList] = useState(false);
 
   const filterToFavorite = () => {
     const filtered = filteredData.filter((item) => item.favorite === true);
-    setFilteredData(filtered);
-    setFavoriteList(true);
+    if (filtered.length > 0) {
+      setFilteredData(filtered);
+      setFavoriteList(true);
+    } else {
+      setLoading({
+        active: true,
+        type: "noFavorite",
+      });
+      setFavoriteList(false);
+      setFilteredData(normalData);
+    }
   };
   const filterToOrder = () => {
     const updatedData = normalData

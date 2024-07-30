@@ -6,6 +6,7 @@ import React, {
   useState,
 } from "react";
 import dataJson from "../API/application.json";
+import Loading from "../loading";
 
 const apiContext = createContext();
 
@@ -21,6 +22,10 @@ export function ApiProvider({ children }) {
   const { results } = dataJson.data;
   const [filteredData, setFilteredData] = useState([]);
   const [normalData, setNormalData] = useState([]);
+  const [loading, setLoading] = useState({
+    active: false,
+    type: "",
+  });
   const ApplyFavoriteRow = useCallback(() => {
     const response = results
       .filter((item) => item.name && item.name.length > 0)
@@ -36,13 +41,24 @@ export function ApiProvider({ children }) {
     ApplyFavoriteRow();
   }, [ApplyFavoriteRow]);
 
-  console.log(filteredData);
-  if (filteredData.length === 0) {
-    return <p>Loading teste ...</p>;
-  }
+  useEffect(() => {
+    if (filteredData.length === 0) {
+      setLoading({
+        active: true,
+        type: "loading",
+      });
+    } else {
+      setLoading({
+        active: false,
+        type: "",
+      });
+    }
+  }, [filteredData]);
 
   return (
-    <apiContext.Provider value={{ filteredData, setFilteredData, normalData }}>
+    <apiContext.Provider
+      value={{ filteredData, setFilteredData, normalData, loading, setLoading }}
+    >
       {children}
     </apiContext.Provider>
   );

@@ -1,0 +1,88 @@
+.loading {
+  display: block;
+  width: 100%;
+  margin: auto;
+  padding-bottom: 20px;
+  color: var(--background-red);
+}
+.loading .content {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+}
+.loading .content h2,
+.loading .content h3 {
+  font-size: 22px;
+}
+.loading .content p {
+  font-size: 14px;
+  font-weight: 600;
+}
+@media only screen and (min-width: 768px) {
+  .loading .content h2,
+  .loading .content h3 {
+    font-size: 30px;
+  }
+  .loading .content p {
+    font-size: 18px;
+    font-weight: 600;
+  }
+}
+.loading .content.loading {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.loading .content.loading .spin {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 5px solid var(--color-gray);
+  animation: spinAnimation infinite 2s 0s;
+}
+@keyframes spinAnimation {
+  25% {
+    border-top: 5px solid var(--background-red);
+  }
+  50% {
+    border-left: 5px solid var(--background-red);
+  }
+  75% {
+    border-bottom: 5px solid var(--background-red);
+  }
+  100% {
+    border-right: 5px solid var(--background-red);
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .loading {
+    display: block;
+    width: 100%;
+    margin: auto;
+    padding-bottom: 40px;
+    color: var(--background-red);
+    padding: 50px;
+  }
+  .loading .content {
+    display: flex;
+    gap: 40px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+  }
+  .loading .content h2,
+  .loading .content h3 {
+    font-size: 50px;
+  }
+  .loading .content p {
+    font-size: 22px;
+    font-weight: 600;
+  }
+}

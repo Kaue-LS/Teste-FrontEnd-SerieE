@@ -3,6 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import HeroInfo from "../heroInfo";
+import Loading from "../loading";
 
 export default function GetHeroData() {
   const baseUrl = "https://gateway.marvel.com:443/v1/public/characters";
@@ -45,15 +46,15 @@ export default function GetHeroData() {
     }
   }, [baseUrl, ts, hash, heroId, isLoading, privateKey, publicKey]);
   if (!privateKey) {
-    return <h1>ERROR Cant Find Private Key</h1>;
+    return <Loading active type={"privateKey"} />;
   }
   if (!publicKey) {
-    return <h1>ERROR Cant Find Public Key</h1>;
+    return <Loading active type={"publicKey"} />;
   }
 
-  if (isLoading) return <p>Loading ...</p>;
-  if (error) return <p>Something went wrong: {error.message}</p>;
-  if (!data) return <p>No data found for heroId: {heroId}</p>;
+  if (isLoading) return <Loading active={true} type={"loading"} />;
+  if (error) return <Loading active={true} type={"error"} />;
+  if (!data) return <Loading active={true} type={"dataNot-found"} />;
 
   return <HeroInfo data={data} />;
 }
