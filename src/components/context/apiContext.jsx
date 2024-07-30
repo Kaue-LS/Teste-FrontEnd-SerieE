@@ -6,7 +6,6 @@ import React, {
   useState,
 } from "react";
 import dataJson from "../API/application.json";
-import Loading from "../loading";
 
 const apiContext = createContext();
 
@@ -26,6 +25,9 @@ export function ApiProvider({ children }) {
     active: false,
     type: "",
   });
+  const [pageSelect, setPageSelect] = useState(0);
+  const [slicedPage, setSlicedPage] = useState([]);
+
   const ApplyFavoriteRow = useCallback(() => {
     const response = results
       .filter((item) => item.name && item.name.length > 0)
@@ -53,11 +55,35 @@ export function ApiProvider({ children }) {
         type: "",
       });
     }
-  }, [filteredData]);
+  }, [filteredData, pageSelect]);
+  useEffect(() => {
+    if (slicedPage.length === 0) {
+      const totalPages = Math.ceil(filteredData.length / 20);
+      const newPages = Array.from({ length: totalPages }, (_, index) => {
+        const startIndex = index * 20;
+        const endIndex = startIndex + 20;
+        return {
+          items: filteredData.slice(startIndex, endIndex),
+        };
+      });
+
+      setSlicedPage(newPages);
+    }
+  }, [filteredData, pageSelect, slicedPage, setSlicedPage]);
 
   return (
     <apiContext.Provider
-      value={{ filteredData, setFilteredData, normalData, loading, setLoading }}
+      value={{
+        filteredData,
+        setFilteredData,
+        normalData,
+        loading,
+        setLoading,
+        pageSelect,
+        setPageSelect,
+        slicedPage,
+        setSlicedPage,
+      }}
     >
       {children}
     </apiContext.Provider>

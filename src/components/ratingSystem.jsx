@@ -19,11 +19,9 @@ export const RatingSystem = () => {
   const maxRating = 5;
 
   const handleRatingChange = (value) => {
-    console.log("ativou");
     setRate(value);
   };
 
-  console.log(rate);
   return (
     <div className="content">
       {Array.from({ length: maxRating }, (_, index) => (

@@ -1,17 +1,44 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import FavoriteIcon from "../assets/icons/favoriteIcon";
 import HeroIcon from "../assets/icons/heroIcon";
 import { useApiContext } from "./context/apiContext";
 
 export default function Switch() {
-  const { filteredData, setFilteredData, normalData, setLoading } =
-    useApiContext();
+  const {
+    filteredData,
+    setFilteredData,
+    normalData,
+    setLoading,
+    slicedPage,
+    setSlicedPage,
+  } = useApiContext();
   const [favoriteList, setFavoriteList] = useState(false);
-
+  const [prevList, setPrevList] = useState([]);
+  const handleSwitchChange = () => {
+    if (favoriteList) {
+      filterToOrder();
+    } else {
+      filterToFavorite();
+    }
+  };
   const filterToFavorite = () => {
-    const filtered = filteredData.filter((item) => item.favorite === true);
-    if (filtered.length > 0) {
-      setFilteredData(filtered);
+    setPrevList(slicedPage);
+    const allItems = slicedPage.flatMap((page) => page.items);
+
+    const filteredFavorites = allItems.filter((item) => item.favorite === true);
+
+    const totalPages = Math.ceil(filteredFavorites.length / 20);
+    const newPages = Array.from({ length: totalPages }, (_, index) => {
+      const startIndex = index * 20;
+      const endIndex = startIndex + 20;
+      return {
+        pageNumber: index + 1,
+        items: filteredFavorites.slice(startIndex, endIndex),
+      };
+    });
+
+    if (newPages.length > 0) {
+      setSlicedPage(newPages);
       setFavoriteList(true);
     } else {
       setLoading({
@@ -19,19 +46,11 @@ export default function Switch() {
         type: "noFavorite",
       });
       setFavoriteList(false);
-      setFilteredData(normalData);
+      setSlicedPage(normalData);
     }
   };
   const filterToOrder = () => {
-    const updatedData = normalData
-      .map((item) => {
-        const foundItem = filteredData.find(
-          (filteredItem) => filteredItem.id === item.id
-        );
-        return foundItem ? foundItem : item;
-      })
-      .sort((a, b) => a.name.localeCompare(b.name));
-    setFilteredData(updatedData);
+    setSlicedPage(prevList);
     setFavoriteList(false);
   };
   return (
@@ -51,13 +70,10 @@ export default function Switch() {
           </div>
           <div className="switchButton">
             <input
-              onChange={
-                !favoriteList ? () => filterToFavorite() : () => filterToOrder()
-              }
+              onChange={handleSwitchChange}
               type="checkbox"
               name="switch"
               id=""
-              defaultCheked={false}
               checked={favoriteList}
             />
           </div>
@@ -79,7 +95,7 @@ export default function Switch() {
                 filterToOrder();
               }
             }}
-            value={!favoriteList ? "name" : "favorite"}
+            value={favoriteList ? "favorite" : "name"}
             defaultValue={"name"}
           >
             <option value="name">Ordenar por nome - A/Z</option>

@@ -15,8 +15,6 @@ export default function HeroInfo({ data }) {
     data.thumbnail.path + "/portrait_xlarge." + data.thumbnail.extension;
 
   const ApplyFavorite = (itemId) => {
-    console.log(isFavorite, "adicionar");
-
     const updatedData = filteredData.map((hero) => {
       if (hero.id === itemId) {
         return {
@@ -107,6 +105,7 @@ export default function HeroInfo({ data }) {
         <aside className="thumbnail">
           {data.thumbnail && (
             <img
+              loading={"lazy"}
               src={`${data.thumbnail.path}.${data.thumbnail.extension}`}
               alt={`Thumbnail of ${data.name}`}
             />
@@ -121,7 +120,7 @@ export default function HeroInfo({ data }) {
         <div className="releases">
           {data.comics.items.map((item, index) => (
             <article key={index} className="release-item">
-              <img src={dataImage} alt={item.name} />
+              <img loading={"lazy"} src={dataImage} alt={item.name} />
               <p>{item.name}</p>
             </article>
           ))}
