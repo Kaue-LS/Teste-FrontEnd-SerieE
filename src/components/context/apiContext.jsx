@@ -20,7 +20,7 @@ export function useApiContext() {
 export function ApiProvider({ children }) {
   const { results } = dataJson.data;
   const [filteredData, setFilteredData] = useState([]);
-
+  const [normalData, setNormalData] = useState([]);
   const ApplyFavoriteRow = useCallback(() => {
     const response = results
       .filter((item) => item.name && item.name.length > 0)
@@ -29,6 +29,7 @@ export function ApiProvider({ children }) {
         favorite: false,
       }));
     setFilteredData(response);
+    setNormalData(response);
   }, [results]);
 
   useEffect(() => {
@@ -41,7 +42,7 @@ export function ApiProvider({ children }) {
   }
 
   return (
-    <apiContext.Provider value={{ filteredData, setFilteredData }}>
+    <apiContext.Provider value={{ filteredData, setFilteredData, normalData }}>
       {children}
     </apiContext.Provider>
   );

@@ -3,25 +3,36 @@ import FavoriteIcon from "../assets/icons/favoriteIcon";
 import HeroIcon from "../assets/icons/heroIcon";
 import { useApiContext } from "./context/apiContext";
 export default function Switch() {
-  const { filteredData, setFilteredData } = useApiContext();
+  const { filteredData, setFilteredData, normalData } = useApiContext();
   const data = filteredData;
   const [favoriteList, setFavoriteList] = useState(false);
-  console.log({ data }, "antes");
+  const [prev, setPrev] = useState(favoriteList);
 
+  console.log(prev, favoriteList);
   const filterFavoriteData = useCallback(() => {
-    console.log(data, "na function");
-
     const filtered = data.filter((item) => {
-      console.log("item", item);
       return item.favorite === true;
     });
     console.log(filtered);
     setFilteredData(filtered);
   }, [data, setFilteredData]);
 
+  const filterAlphabeticalData = useCallback(() => {
+    console.log({ normalData });
+    setFilteredData(normalData);
+    setFavoriteList(false);
+    setPrev(false);
+  }, [normalData, setFilteredData]);
+
+  const handleFavorite = () => {
+    setPrev(favoriteList);
+    setFavoriteList(!favoriteList);
+  };
+
   useEffect(() => {
-    if (favoriteList) filterFavoriteData(); // Chama a função de filtragem sempre que os dados mudam
-  }, [favoriteList, filterFavoriteData]);
+    if (favoriteList) filterFavoriteData();
+    if (!favoriteList && favoriteList !== prev) filterAlphabeticalData();
+  }, [favoriteList, filterFavoriteData, filterAlphabeticalData, prev]);
 
   return (
     <div className="switch">
@@ -40,7 +51,7 @@ export default function Switch() {
           </div>
           <div className="switchButton">
             <input
-              onClick={() => setFavoriteList(!favoriteList)}
+              onClick={() => handleFavorite(!favoriteList)}
               type="checkbox"
               name="switch"
               id=""
