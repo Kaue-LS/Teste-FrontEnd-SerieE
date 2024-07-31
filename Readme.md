@@ -1,70 +1,32 @@
-# Getting Started with Create React App
+# Sobre o Projeto:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+O projeto é um teste de um processo seletivo da **Serie.e Design**, na qual é desenvolvido uma **SPA(Single Page Aplication)** utilizando dados fornecidos de uma **API da Marvel**;
+O projeto atualmente se apresenta incompleto, nem todos os componentes presentas apresentam funcionalidade devido a dificuldades de obter dados pela API;
+Porém ainda contem animações e pequenas função em alguns componentes presentes nas páginas, principalmente na home, mesmo sem ter um banco de dados para provar suas funcionalidades, foi copiado uma parte da API e também foi usado inteligência artifical para gerar mais personagens para realizar determinados objetivos do projeto.
+Além disso o projeto foi desenvolvido para ser responsivo, na qual você pode verificar no **vercel** onde o projeto esta hospedado:
 
-## Available Scripts
+- https://teste-front-end-serie-e.vercel.app/
 
-In the project directory, you can run:
+## O que foi usado:
 
-### `npm start`
+- React.js
+- CSS
+- Google Fonts
+- Axios
+- Context API
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Antes de iniciar a o projeto:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- A chaves privada e publica estão guardados no arquivo **.env**, por ser um arquivo destinado somente para desenvolvimento, o projeto hospedado nao conseguia buscar resultados de busca da API sem os paramentros solicitados, com isso o arquivo foi mantido, caso nao funcionar, será necessario trocar as chaves, se inscrevendo no proprio site da [**Marvel API**](https://developer.marvel.com);
 
-### `npm test`
+### Iniciando projeto:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Para iniciar o projeto é necesario ter **Node.js** e **npm** instalado, assim iniciado no seu terminal **CMD** ou **VSCode** com o comando **npm start**;
 
-### `npm run build`
+### Estruturas importantes:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Os conteudos do projeto estão na pasta **src**;
+- A pasta **assets** contém os icones e imagens utilizadas;
+- **components** onde localiza os componentes presentes nas paginas presentes em **pages** e para as funcionalidades dos prósprios. Entre esses componenetes estão **API** e **context**;
+- Os estilos e css estão em **styles**;
+- As rotas, a principal e as customizadas estão localizadas no arquivo **router.js**
