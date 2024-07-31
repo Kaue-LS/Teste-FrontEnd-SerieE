@@ -101,7 +101,7 @@
     background-color: #fff;
   }
   .search .content input {
-    color: var(--background-red);
+    color: var(--color-lightBlack);
     font-size: 15px;
     font-weight: 600;
     margin-left: 30px;
@@ -113,6 +113,9 @@
     color: var(--background-red);
     opacity: 60%;
     font-size: 15px;
+  }
+  .search.home .content input {
+    color: var(--background-red);
   }
   .search .content .iconButton span svg {
     width: 20px;

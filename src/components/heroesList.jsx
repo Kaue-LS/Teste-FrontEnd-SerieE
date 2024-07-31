@@ -77,7 +77,7 @@ export default function HeroesList() {
   return slicedPage.length ? (
     <section className="heroesList">
       <div className="content">
-        {slicedPage[pageSelect].items.map((item) => (
+        {slicedPage[pageSelect]?.items?.map((item) => (
           <div key={item.id} className="card">
             <div className="image">
               <Link to={`/${item.id}`}>
